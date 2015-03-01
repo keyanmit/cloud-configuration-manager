@@ -7,16 +7,16 @@ using ZooManContracts.MetaData;
 
 namespace ZooManContracts.Interface
 {
-    interface IZooManServer
+    public interface IZooManServer
     {
-        BaseZooManListHeader CreateNewConfigurationManager(string namespaceName);
+        BaseZooManListHeader CreateNewConfigurationManager(string namespaceName, bool isSigned = false);
 
         BaseZooManListHeader AddNewConfigurationPage(object payload, NewConfigurationPageLocation location);
 
         bool DeleteConfigurationList(bool isSoftDelete = false);        
     }
 
-    interface IZooManKeyValueDictionaryServer : IZooManServer
+    public interface IZooManKeyValueDictionaryServer : IZooManServer
     {
         void AddOrUpdateKeyValuePair(string key, string value);
         void DeleteKeyValuePair(string key);
