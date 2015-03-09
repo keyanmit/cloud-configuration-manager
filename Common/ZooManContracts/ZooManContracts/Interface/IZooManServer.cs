@@ -21,5 +21,7 @@ namespace ZooManContracts.Interface
         void AddOrUpdateKeyValuePair(string key, string value);
         void DeleteKeyValuePair(string key);
         string GetValue(string key);
+        Dictionary<string, string> GetValueBatch(string[] keys);
+        void SetValuesBatch(Dictionary<string, string> keyValuePairs);
     }
 }
