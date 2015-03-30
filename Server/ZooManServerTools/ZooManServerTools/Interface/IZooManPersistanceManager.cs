@@ -9,9 +9,9 @@ namespace ZooManServerTools.Interface
 {
     public interface IZooManPersistanceManager
     {
-        void PrependNewConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
-        void AppendNewConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
-        void UpdateConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
-        void DeleteConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
+        string PrependNewConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
+        string AppendNewConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
+        string UpdateConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
+        string DeleteConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page);
     }
 }

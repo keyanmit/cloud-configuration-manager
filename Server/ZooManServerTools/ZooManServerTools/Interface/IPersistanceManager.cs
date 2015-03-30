@@ -8,10 +8,8 @@ namespace ZooManServerTools.PersistanceManager
 {
     public interface IPersistanceManager
     {
-        void updateBlob(string blobUri, string data);
-        void deleteBlob(string blobUri);
-        void lockBlob(string blobUri, out object lockObject);
-        void releaseLock(string blobUri, object lockObject);
+        void createOrUpdateBlob(ref string blobUri, string data, string blobPrefix);
+        void deleteBlob(string blobUri);       
     }
     
 }

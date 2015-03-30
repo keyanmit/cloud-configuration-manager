@@ -7,7 +7,7 @@ namespace ZooManContracts.MetaData
 {
     public class BaseZooManListHeader
     {
-        public string Location { get; private set; }
+        public string Location { get; set; }
 
         public ZooManTicket Ticket { get; set; }
         public string ConfigurationPage { get; set; }
@@ -26,7 +26,7 @@ namespace ZooManContracts.MetaData
         public string ZooManListHeaderUrl { get; set; }
         public string PayloadSignature { get; set; }
         public List<string> ConfigurationPageChildren { get; set; }
-        public string Location { get; private set; }
+        public string Location { get; set; }
 
         //extending class should define the configuration object type to be serializd.
     }

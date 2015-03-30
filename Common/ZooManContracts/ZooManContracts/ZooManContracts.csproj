@@ -39,6 +39,7 @@
     <Compile Include="Constants\ZooManConfigurationConstants.cs" />
     <Compile Include="Interface\IZooManCSharpClient.cs" />
     <Compile Include="Interface\IZooManServer.cs" />
+    <Compile Include="MetaData\BaseZooManConfigurationPage.cs" />
     <Compile Include="MetaData\BaseZooManListHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

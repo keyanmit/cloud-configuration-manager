@@ -55,6 +55,8 @@ namespace ZooManServerTools.KeyvalueStore
                         ? signingAuthority.GetBase64EncodedSignedHashForPayload(payload, signingCert)
                         : string.Empty
             };
+            
+            return null;            
         }
 
         public bool DeleteConfigurationList(bool isSoftDelete = false)
