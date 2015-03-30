@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 using ZooManContracts.MetaData;
 using ZooManServerTools.ConfigStore;
 using ZooManServerTools.Interface;
+using SigningAndEncryption;
+using System.Security.Cryptography.X509Certificates;
+using SigningAndEncryption.SigningAndExcryption;
 
 namespace ZooManServerTools.PersistanceManager
 {
@@ -14,10 +17,13 @@ namespace ZooManServerTools.PersistanceManager
     {
         //private readonly string configurationPageName = "app_{0}_{1}";
         private readonly IPersistanceManager persistanceManager;
+        private readonly ISigningAuthority signatureAuthority;
+        private X509Certificate2 cert = new X509Certificate2(@"D:\code\dump\EncryptionCert.pfx", "Password~1");
 
         public BaseZooManPersistanceManager(IPersistanceManager manager)
         {
             persistanceManager = manager;
+            signatureAuthority = new RSASignatureAuthority();
         }
 
         public string InitializeHeader(BaseZooManListHeader header)
@@ -30,7 +36,12 @@ namespace ZooManServerTools.PersistanceManager
         }
 
         public string PrependNewConfiguration(BaseZooManListHeader header, BaseZooManConfigurationPage page)
-        {            
+        {
+            if (header.Ticket.IsSignatureEnabled)
+            {
+                page.PayloadSignature = signatureAuthority.GetBase64EncodedSignedHashForPayload(page.Payload, cert);
+            }
+
             var headNxt = header.ConfigurationPage;
             var blobUri = page.Location;
             

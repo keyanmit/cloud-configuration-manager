@@ -73,7 +73,7 @@ namespace ZooManUnitTest.PersistanceManager
                 ConfigurationPage = string.Empty,
                 Ticket = new ZooManTicket()
                 {
-                    IsSignatureEnabled = false,
+                    IsSignatureEnabled = true,
                     Namespace = Guid.NewGuid(),
                     NamespaceFriendlyName = "keyantest",
                     Version = "1.0"
